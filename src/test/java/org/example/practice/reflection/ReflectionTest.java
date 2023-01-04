@@ -1,6 +1,7 @@
 package org.example.practice.reflection;
 
 import org.example.practice.reflection.annotation.Controller;
+import org.example.practice.reflection.annotation.Service;
 import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
@@ -18,6 +19,16 @@ public class ReflectionTest {
 		
 		Set<Class<?>> beans = new HashSet<>();
 		beans.addAll(reflections.getTypesAnnotatedWith(Controller.class));  // controller들을 Bean에 등록
+		
+		logger.debug("beans: {}", beans);
+	}
+	
+	@Test
+	void serviceScan() {
+		Reflections reflections = new Reflections("org.example.practice.reflection");
+		
+		Set<Class<?>> beans = new HashSet<>();
+		beans.addAll(reflections.getTypesAnnotatedWith(Service.class));  // service들을 Bean에 등록
 		
 		logger.debug("beans: {}", beans);
 	}
