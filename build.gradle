@@ -10,14 +10,19 @@ repositories {
 }
 
 dependencies {
-    // servlet
+    // embeded tomcat (WAS)
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42'
+
+    // tomcat으로 인해 servlet 필요
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'javax.servlet:jstl:1.2' // 간단한 jsp 출력을 위해
+
+    // log
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
 
     // reflections
     implementation 'org.reflections:reflections:0.10.2'
-
-    // log
-    implementation 'ch.qos.logback:logback-classic:1.4.5'
 
     // assertj
     testImplementation 'org.assertj:assertj-core:3.23.1'
