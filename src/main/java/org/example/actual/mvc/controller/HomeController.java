@@ -1,11 +1,16 @@
 package org.example.actual.mvc.controller;
 
+import org.example.actual.mvc.RequestMethod;
+import org.example.actual.mvc.annotation.Controller;
+import org.example.actual.mvc.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HomeController implements Controller {
+@Controller
+public class HomeController {
 	
-	@Override
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return "home";
 	}
