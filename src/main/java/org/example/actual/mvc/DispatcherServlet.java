@@ -30,8 +30,10 @@ public class DispatcherServlet extends HttpServlet {
 		log.info("[DispatcherServlet] service start");
 		try {
 			Controller handler = rmhm.findHandler(new HandlerKey(RequestMethod.valueOf(request.getMethod()), request.getRequestURI()));
+			// [issue 1] redirect:/users <- 처리되고있지 않음
 			String viewName = handler.handleRequest(request, response);
 			
+			// [issue 1] forward 만 처리한 코드
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(viewName);
 			requestDispatcher.forward(request, response);
 			
