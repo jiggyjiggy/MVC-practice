@@ -35,6 +35,8 @@ public class DispatcherServlet extends HttpServlet {
 			
 			// [issue 1] redirect:/users <- 처리되고있지 않음
 			String viewName = handler.handleRequest(request, response);
+			// [issue 3] spring web MVC framework에 비교했을때, view에 대한 판단 과정이 없다
+			// View resolver를 통해서 redirect인지 forward인지 확인하는 과정이 필요하다
 			
 			// [issue 1] forward 만 처리한 코드
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(viewName);
