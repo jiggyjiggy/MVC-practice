@@ -1,6 +1,7 @@
 package org.example.actual.mvc;
 
 import org.example.actual.mvc.controller.Controller;
+import org.example.actual.mvc.controller.ForwardController;
 import org.example.actual.mvc.controller.HomeController;
 import org.example.actual.mvc.controller.UserCreateController;
 import org.example.actual.mvc.controller.UserListController;
@@ -15,6 +16,7 @@ public class RequestMappingHandlerMapping {
 		mappings.put(new HandlerKey(RequestMethod.GET, "/"), new HomeController());
 		mappings.put(new HandlerKey(RequestMethod.GET, "/users"), new UserListController());
 		mappings.put(new HandlerKey(RequestMethod.POST, "/users"), new UserCreateController());
+		mappings.put(new HandlerKey(RequestMethod.GET, "/user/form"), new ForwardController("/user/form.jsp"));
 	}
 	
 	public Controller findHandler(HandlerKey handlerKey) {
