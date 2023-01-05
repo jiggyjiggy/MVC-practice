@@ -29,7 +29,7 @@ public class DispatcherServlet extends HttpServlet {
 //		super.service(req, resp);
 		log.info("[DispatcherServlet] service start");
 		try {
-			Controller handler = rmhm.findHandler(request.getRequestURI());
+			Controller handler = rmhm.findHandler(new HandlerKey(RequestMethod.valueOf(request.getMethod()), request.getRequestURI()));
 			String viewName = handler.handleRequest(request, response);
 			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(viewName);
