@@ -1,7 +1,7 @@
-package org.example.practice.front_controller_pattern.mvc;
+package org.example.actual.mvc;
 
-import org.example.practice.front_controller_pattern.mvc.controller.Controller;
-import org.example.practice.front_controller_pattern.mvc.controller.HomeController;
+import org.example.actual.mvc.controller.Controller;
+import org.example.actual.mvc.controller.HomeController;
 
 import java.util.HashMap;
 import java.util.Map;

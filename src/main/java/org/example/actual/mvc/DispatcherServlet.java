@@ -1,6 +1,6 @@
-package org.example.practice.front_controller_pattern.mvc;
+package org.example.actual.mvc;
 
-import org.example.practice.front_controller_pattern.mvc.controller.Controller;
+import org.example.actual.mvc.controller.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
