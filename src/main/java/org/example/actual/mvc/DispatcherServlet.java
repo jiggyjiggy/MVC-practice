@@ -30,6 +30,9 @@ public class DispatcherServlet extends HttpServlet {
 		log.info("[DispatcherServlet] service start");
 		try {
 			Controller handler = rmhm.findHandler(new HandlerKey(RequestMethod.valueOf(request.getMethod()), request.getRequestURI()));
+			// [issue 2] spring web MVC framework에 비교했을때, handler에 대해 바로 실행하고있다
+			// Handler adapter를 통해야한다
+			
 			// [issue 1] redirect:/users <- 처리되고있지 않음
 			String viewName = handler.handleRequest(request, response);
 			
